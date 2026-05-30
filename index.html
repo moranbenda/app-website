@@ -1,27 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>עצמאי פלוס | כל מה שעצמאי צריך במקום אחד</title>
   <meta name="description" content="עצמאי פלוס מרכזת את כל מה שעוסק עצמאי צריך: הפקת מסמכים, מעקב הכנסות והוצאות, דיווח למע״מ, דוחות שנתיים, ניהול לקוחות וסגירת שנה — בלי רואה חשבון.">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAEsCAIAAAD2HxkiAABCG2NhQlgA...">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
   <style>
-    /* איפוס והגדרות בסיס */
-    :root {
-      --bg-dark: linear-gradient(135deg, #0f1026 0%, #1a1c4b 100%);
-      --text-white: #ffffff;
-      --text-muted: #b4b7db;
-      --accent-gradient: linear-gradient(90deg, #00f2fe 0%, #4facfe 100%);
-      --purple-light: #c084fc;
-      --card-bg: rgba(255, 255, 255, 0.05);
-      --card-border: rgba(255, 255, 255, 0.1);
-    }
-
+    /* איפוס והגדרת פונטים וצבעי רקע בהירים בהתאם לעיצוב */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -30,8 +21,8 @@
 
     body {
       font-family: 'Heebo', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-white);
+      background-color: #fcfcfd;
+      color: #1e293b;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -41,239 +32,236 @@
       color: inherit;
     }
 
-    /* תפריט עליון (Header) */
+    /* ניווט עליון - נקי ובהיר */
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 8%;
-      background: rgba(15, 16, 38, 0.8);
-      backdrop-filter: blur(10px);
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 1px solid var(--card-border);
     }
 
     .logo {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 800;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #1e1b4b; /* כחול כהה עמוק מהלוגו */
+    }
+
+    .logo span {
+      color: #06b6d4; /* טורקיז פלוס */
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 30px;
+      gap: 35px;
     }
 
     nav ul a {
       font-weight: 500;
-      transition: color 0.3s;
-      color: var(--text-muted);
+      color: #64748b;
+      transition: color 0.2s;
     }
 
     nav ul a:hover {
-      color: var(--text-white);
+      color: #1e293b;
     }
 
     .header-btn {
-      padding: 8px 20px;
-      border: 1px solid #4facfe;
+      padding: 9px 22px;
+      border: 1px solid #06b6d4;
       border-radius: 25px;
+      color: #06b6d4;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
     }
 
     .header-btn:hover {
-      background: var(--accent-gradient);
-      color: #0f1026;
-      box-shadow: 0px 4px 15px rgba(0, 242, 254, 0.4);
+      background: #06b6d4;
+      color: #ffffff;
     }
 
-    /* מסך ראשי - Hero Section */
+    /* אזור ראשי - Hero Section בסגנון העיצוב הבהיר */
     .hero {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 80px 8%;
-      min-height: calc(100vh - 80px);
-      gap: 50px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      gap: 60px;
     }
 
     .hero-content {
       flex: 1;
-      max-width: 600px;
+      max-width: 620px;
     }
 
     .badge {
       display: inline-block;
-      padding: 6px 16px;
-      background: rgba(192, 132, 252, 0.15);
-      color: var(--purple-light);
+      padding: 6px 14px;
+      background-color: #f1f5f9;
+      color: #6366f1;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       font-weight: 500;
-      margin-bottom: 20px;
-      border: 1px solid rgba(192, 132, 252, 0.3);
+      margin-bottom: 24px;
+      border: 1px solid #e2e8f0;
     }
 
     .hero-content h1 {
-      font-size: 3.5rem;
+      font-size: 3.2rem;
       font-weight: 800;
-      line-height: 1.2;
+      color: #0f172a;
+      line-height: 1.25;
       margin-bottom: 20px;
     }
 
     .hero-content h1 span {
-      background: var(--accent-gradient);
+      background: linear-gradient(90deg, #06b6d4 0%, #6366f1 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .hero-content p {
-      font-size: 1.2rem;
-      color: var(--text-muted);
+      font-size: 1.15rem;
+      color: #475569;
       margin-bottom: 35px;
-      font-weight: 300;
+      font-weight: 400;
     }
 
-    /* כפתורים */
+    /* קבוצת כפתורי הנעה לפעולה */
     .cta-group {
       display: flex;
-      gap: 20px;
-      align-items: center;
+      gap: 16px;
     }
 
     .btn-primary {
-      padding: 14px 32px;
-      background: var(--accent-gradient);
-      color: #0f1026;
+      padding: 14px 30px;
+      background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 100%);
+      color: #ffffff;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       border-radius: 30px;
-      box-shadow: 0px 5px 20px rgba(0, 242, 254, 0.3);
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0px 8px 25px rgba(0, 242, 254, 0.5);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
     }
 
     .btn-secondary {
-      padding: 14px 32px;
-      border: 1px solid var(--card-border);
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-white);
+      padding: 14px 30px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: #334155;
       font-weight: 500;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       border-radius: 30px;
-      transition: background 0.3s;
+      transition: background 0.2s;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: #f8fafc;
     }
 
-    /* אזור המוקאפ / תמונה בצד שמאל */
+    /* הצגת תמונת המוקאפ / אפליקציה בנייד משמאל */
     .hero-image {
       flex: 1;
       display: flex;
       justify-content: center;
-      position: relative;
-    }
-
-    /* אלמנט עיצובי של הילה זוהרת מאחורי התמונה */
-    .hero-image::before {
-      content: '';
-      position: absolute;
-      width: 350px;
-      height: 350px;
-      background: radial-gradient(circle, rgba(0,242,254,0.2) 0%, rgba(79,172,254,0) 70%);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
+      align-items: center;
     }
 
     .hero-image img {
       max-width: 100%;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
-      z-index: 2;
-      border: 1px solid var(--card-border);
+      max-height: 520px;
+      object-fit: contain;
+      border-radius: 24px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
     }
 
-    /* אזור הפיצ'רים / כרטיסיות */
-    .features {
-      padding: 100px 8%;
+    /* אזור הפיצ'רים / כרטיסיות מידע מהקוד המקורי */
+    .section {
+      padding: 90px 8%;
       text-align: center;
     }
 
-    .features h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 15px;
+    .section.gray {
+      background-color: #f8fafc;
     }
 
-    .features .sub {
-      color: var(--text-muted);
-      margin-bottom: 60px;
+    .section.white {
+      background-color: #ffffff;
+    }
+
+    .section h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .section .sub {
+      color: #64748b;
+      margin-bottom: 50px;
       font-size: 1.1rem;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
     }
 
     .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      padding: 40px 30px;
-      border-radius: 20px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 35px 25px;
+      border-radius: 16px;
       text-align: right;
-      transition: transform 0.3s, border-color 0.3s;
-      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(0, 242, 254, 0.4);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
     }
 
     .card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: #00f2fe;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #0f172a;
+      font-weight: 700;
     }
 
     .card p {
-      color: var(--text-muted);
-      font-size: 1rem;
+      color: #475569;
+      font-size: 0.95rem;
     }
 
-    /* התאמה למובייל (רספונסיביות) */
+    /* התאמה מלאה למובייל וטאבלטים */
     @media (max-width: 992px) {
       header {
         padding: 15px 5%;
       }
       nav {
-        display: none; /* במובייל אמיתי כדאי להוסיף תפריט המבורגר */
+        display: none;
       }
       .hero {
         flex-direction: column;
         text-align: center;
-        padding: 60px 5%;
+        padding: 50px 5%;
         gap: 40px;
       }
       .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
       }
       .cta-group {
         justify-content: center;
@@ -293,7 +281,7 @@
 <body>
 
   <header>
-    <div class="logo">עצמאי פלוס</div>
+    <div class="logo">עצמאי <span>פלוס</span></div>
     <nav>
       <ul>
         <li><a href="#features">יתרונות</a></li>
@@ -305,9 +293,9 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="badge">חדש: גרסה 2026 מותאמת אישית</div>
+      <div class="badge">גרסה מותאמת אישית לניהול עצמאי</div>
       <h1>כל מה שביזנס עצמאי צריך <span>במקום אחד.</span></h1>
-      <p>הפקת מסמכים, מעקב הוצאות מדויק, דיווחים מהירים לרשויות, ודוחות שנתיים מובנים. המערכת החכמה שמחליפה את הכאב ראש ומאפשרת לך לנהל הכל בעצמך – בקלות ובביטחון.</p>
+      <p>הפקת מסמכים, מעקב הכנסות והוצאות, דיווח למע״מ, דוחות שנתיים, ניהול לקוחות וסגירת שנה — בלי רואה חשבון.</p>
       
       <div class="cta-group">
         <a href="#" class="btn-primary">מתחילים עכשיו (14 יום חינם)</a>
@@ -316,28 +304,45 @@
     </div>
     
     <div class="hero-image">
-      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='350' viewBox='0 0 500 350' style='background:%23252850; border-radius:16px;'><text x='50%25' y='50%25' font-family='sans-serif' font-size='18' fill='%23fff' dominant-baseline='middle' text-anchor='middle'>[כאן שמים את תמונת הנייד/מחשב מהאפליקציה]</text></svg>" alt="צילום מסך אפליקציה">
+      <img src="WhatsApp Image 2026-05-30 at 17.14.57.jpeg" alt="אפליקציית עצמאי פלוס בנייד">
     </div>
   </section>
 
-  <section class="features" id="features">
-    <h2>בלי רואה חשבון, בלי סיבוכים</h2>
+  <section class="section gray" id="features">
+    <h2>בלי רואה חשבון</h2>
     <p class="sub">הכלים שיעזרו לך לנהל נכון מול רשויות המס, הלקוחות והעסק עצמו.</p>
     
     <div class="cards">
       <article class="card">
-        <h3>ניהול עצמאי לחלוטין</h3>
-        <p>המערכת מדריכה אותך צעד אחר צעד להגשת הדו״ח השנתי באתר רשות המסים, ומפיקה דוח רווח והפסד מדויק.</p>
+        <h3>בלי רואה חשבון</h3>
+        <p>המערכת מדריכה גם להגשת דו״ח שנתי באתר רשות המסים, ומפיקה דוח רווח והפסד ודוח פחת לפי המקובל ברשויות.</p>
       </article>
       
       <article class="card">
         <h3>מתאים לפטור ולמורשה</h3>
-        <p>הפקת מסמכים, ניהול מע״מ, מעקב הוצאות מוכרות וניהול לקוחות — הכל מותאם בדיוק להגדרות העסק שלך.</p>
+        <p>מסמכים, מע״מ, הוצאות מוכרות, לקוחות ודוחות — בהתאם לסוג העסק שלך.</p>
       </article>
       
       <article class="card">
-        <h3>חיסכון מיידי בהוצאות</h3>
-        <p>במקום לשלם אלפי שקלים בשנה על ליווי חיצוני קבוע, ניהול העבודה השוטפת והתקופתית מתבצע באפליקציה אחת פשוטה.</p>
+        <h3>חסכון בהוצאות</h3>
+        <p>במקום לשלם על ליווי חיצוני יקר, אפשר לנהל את רוב העבודה השוטפת והתקופתית באפליקציה אחת פשוטה וברורה.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section white" id="faq">
+    <h2>שאלות ותשובות</h2>
+    <p class="sub">התשובות החשובות לפני שמתחילים.</p>
+    
+    <div class="cards">
+      <article class="card">
+        <h3>למי האפליקציה מתאימה?</h3>
+        <p>לעוסק פטור ולעוסק מורשה שאינם מחויבים ברואה חשבון ורוצים לנהל את העסק בצורה עצמאית וברורה.</p>
+      </article>
+      
+      <article class="card">
+        <h3>מה מקבלים ב־14 ימי ניסיון?</h3>
+        <p>גישה מלאה לכל הפיצ'רים של המערכת ללא התחייבות, כדי שתוכל לראות איך הכל עובד בשבילך באופן אישי.</p>
       </article>
     </div>
   </section>
