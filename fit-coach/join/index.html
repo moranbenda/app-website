@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>התאמת תוכנית אישית | Fit Coach</title>
   <meta name="description" content="כמה שאלות קצרות שיעזרו לי להכיר אותך ולהתאים לך תוכנית אימונים אישית.">
-  <meta name="theme-color" content="#102842">
+  <meta name="theme-color" content="#24105f">
+  <link rel="icon" href="/fit-coach/assets/fit-coach-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,7 +14,7 @@
   <script src="/fit-coach/script.js" defer></script>
 </head>
 <body class="join-page">
-<header class="join-header"><a class="brand" href="/fit-coach/"><span class="logo">FC</span><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a><a href="/fit-coach/">חזרה לאתר</a></header>
+<header class="join-header"><a class="brand" href="/fit-coach/"><img class="brand-logo" src="/fit-coach/assets/fit-coach-logo.png" alt=""><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a><a href="/fit-coach/">חזרה לאתר</a></header>
 <main class="join-main">
   <section class="wizard" data-wizard>
     <div class="wizard-head"><div><small data-step-label>שלב 1 מתוך 9</small><h1 data-step-heading>בואי נכיר</h1></div><span data-save>הטיוטה נשמרת במכשיר</span></div>
@@ -80,7 +81,7 @@
       </section>
 
       <section class="form-step" data-step="7" data-title="שאלון בריאות">
-        <div class="step-title"><span>כדי שאבנה תוכנית בטוחה ומתאימה</span><h2>כמה שאלות על הבריאות שלך</h2><p>בגרסה המחוברת המידע יישמר במערכת מאובטחת.</p></div>
+        <div class="step-title"><span>כדי שאבנה תוכנית בטוחה ומתאימה</span><h2>כמה שאלות על הבריאות שלך</h2><p>המידע יישמר במערכת מאובטחת וישמש רק לצורך התאמת הליווי.</p></div>
         <div class="health">
           <fieldset><legend>האם קיימת מגבלה או מצב רפואי שחשוב שאדע עליו?</legend><div class="inline"><label><input type="radio" name="medicalCondition" value="no"><span>לא</span></label><label><input type="radio" name="medicalCondition" value="yes"><span>כן</span></label></div></fieldset>
           <label class="field conditional-text" data-show="medicalCondition:yes"><b>פרטי בקצרה</b><textarea name="medicalConditionDetails" rows="3"></textarea></label>
@@ -92,25 +93,29 @@
         <div class="notice"><b>חשוב:</b> השאלון אינו תחליף לייעוץ רפואי. במקרה של מצב רפואי, כאב חריג או חוסר ודאות יש לקבל אישור מתאים לפני תחילת פעילות.</div>
       </section>
 
-      <section class="form-step" data-step="8" data-title="בחירת מסלול">
-        <div class="step-title"><span>החבילות הסופיות ייקבעו לאחר חיבור הסליקה</span><h2>איזו רמת ליווי נשמעת לך מתאימה?</h2><p>כרגע זו בחירת העדפה בלבד. המחירים יוצגו לפני התשלום.</p></div>
-        <div class="package-options"><label><input type="radio" name="package" value="start"><span><small>START</small><b>להתחלה נכונה</b><em>תוכנית אישית ומעקב בסיסי.</em></span></label><label class="recommended"><input type="radio" name="package" value="progress"><i>המומלץ</i><span><small>PROGRESS</small><b>למסגרת והתקדמות</b><em>תוכנית, מעקב ועדכונים.</em></span></label><label><input type="radio" name="package" value="premium"><span><small>PREMIUM</small><b>לליווי קרוב יותר</b><em>התאמות תכופות יותר.</em></span></label></div><p class="group-error" data-error="package">בחרי מסלול.</p>
+      <section class="form-step" data-step="8" data-title="בחירת חבילה">
+        <div class="step-title"><span>אותו ליווי אישי בכל החבילות</span><h2>לכמה זמן תרצי להתחיל?</h2><p>התכנית תותאם למה שמילאת: עד 4 אימונים בשבוע, בבית, בחדר הכושר, בפארק או בשילוב.</p></div>
+        <div class="package-options duration-packages">
+          <label><input type="radio" name="package" value="month"><span><small>חודש ניסיון</small><b>300 ₪</b><em>תשלום אחד</em></span></label>
+          <label class="recommended"><input type="radio" name="package" value="quarter"><i>המשתלם להתחלה</i><span><small>3 חודשים</small><b>750 ₪</b><em>או 3 תשלומים של 250 ₪</em></span></label>
+          <label><input type="radio" name="package" value="half-year"><span><small>חצי שנה</small><b>1,320 ₪</b><em>או 6 תשלומים של 220 ₪</em></span></label>
+        </div><p class="group-error" data-error="package">בחרי חבילה.</p>
       </section>
 
       <section class="form-step" data-step="9" data-title="סיכום">
         <div class="step-title"><span>כמעט סיימנו</span><h2>זה מה שסיפרת לי</h2><p>אפשר לחזור אחורה ולשנות כל תשובה.</p></div>
         <div class="summary" data-summary></div>
-        <label class="consent"><input type="checkbox" name="consent"><span>אני מאשרת שהפרטים שמסרתי נכונים, ומבינה שההצטרפות תושלם לאחר הצגת המחיר ואישור התשלום.</span></label><p class="group-error" data-error="consent">יש לאשר את ההצהרה.</p>
-        <div class="notice"><b>בגרסה הזו:</b> הכפתור שומר טיוטה בדפדפן. לאחר הפגישה עם טרנזילה נחבר כאן תשלום, שמירה מאובטחת והפקת חשבונית.</div>
+        <label class="consent"><input type="checkbox" name="consent"><span>אני מאשרת שהפרטים שמסרתי נכונים, ומבינה שההצטרפות תושלם לאחר אישור התשלום.</span></label><p class="group-error" data-error="consent">יש לאשר את ההצהרה.</p>
+        <div class="notice"><b>בשלב הבא:</b> לאחר חיבור הסליקה הכפתור יעביר לתשלום מאובטח, והחשבונית תישלח אוטומטית למייל.</div>
       </section>
 
       <section class="success" data-success><i>✓</i><span>הפרטים התקבלו</span><h2>איזה כיף, עשית את הצעד הראשון 💙</h2><p>לאחר שנחבר את הסליקה, כאן יושלם התשלום והפרטים יישלחו אליי אוטומטית.</p><a class="btn btn-primary btn-large" href="/fit-coach/">חזרה לאתר</a></section>
 
-      <div class="wizard-actions" data-actions><button type="button" class="btn btn-light" data-prev disabled>חזרה</button><button type="button" class="btn btn-primary" data-next>המשך ←</button><button type="submit" class="btn btn-primary" data-submit hidden>שמירת הפרטים ✓</button></div>
+      <div class="wizard-actions" data-actions><button type="button" class="btn btn-light" data-prev disabled>חזרה</button><button type="button" class="btn btn-primary" data-next>המשך ←</button><button type="submit" class="btn btn-primary" data-submit hidden>המשך לתשלום ✓</button></div>
     </form>
   </section>
 
-  <aside class="join-aside"><span>התאמה אישית</span><h2>השאלון הזה כבר חוסך את שיחת ה״אז ספרי לי קצת עלייך״.</h2><p>בסוף התהליך יהיו לי הפרטים שאני באמת צריכה כדי לבנות עבורך תוכנית ריאלית.</p><ul><li>✓ נקודת הפתיחה שלך</li><li>✓ מטרות והעדפות</li><li>✓ מקום וציוד</li><li>✓ זמן ומסגרת</li><li>✓ מידע בריאותי חשוב</li></ul><div><b>הפרטיות שלך חשובה</b><p>בגרסה המחוברת המידע יישמר בצורה מאובטחת ויהיה נגיש רק לצורך הליווי.</p></div></aside>
+  <aside class="join-aside"><span>התאמה אישית</span><h2>השאלון הזה כבר חוסך את שיחת ה״אז ספרי לי קצת עלייך״.</h2><p>בסוף התהליך יהיו לי הפרטים שאני באמת צריכה כדי לבנות עבורך תוכנית ריאלית.</p><ul><li>✓ נקודת הפתיחה שלך</li><li>✓ מטרות והעדפות</li><li>✓ מקום וציוד</li><li>✓ זמן ומסגרת</li><li>✓ מידע בריאותי חשוב</li></ul><div><b>הפרטיות שלך חשובה</b><p>המידע יישמר בצורה מאובטחת ויהיה נגיש רק לצורך התאמת הליווי.</p></div></aside>
 </main>
 </body>
 </html>
