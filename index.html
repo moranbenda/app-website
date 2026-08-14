@@ -3,772 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>עצמאי פלוס - הנהלת חשבונות עצמאית</title>
-  <meta name="description" content="עצמאי פלוס - מערכת לניהול עסק לעצמאים: הכנסות, הוצאות, מסמכים, לקוחות, דוחות ו-14 ימי ניסיון חינם." />
-
-  <link rel="icon" type="image/png" href="/assets/azmaiplus-logo.png" />
-  <link rel="apple-touch-icon" href="/assets/azmaiplus-logo.png" />
-
+  <title>עצמאי פלוס | לנהל את העסק במקום אחד</title>
+  <meta name="description" content="עצמאי פלוס היא מערכת לניהול העסק לעצמאים: הכנסות והוצאות, מסמכים, לקוחות, דוחות, מע״מ, פחת וסגירת שנה — במקום אחד." />
+  <link rel="icon" type="image/png" href="assets/azmaiplus-logo.png" />
+  <link rel="apple-touch-icon" href="assets/azmaiplus-logo.png" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
-
-    :root{
-      --blue:#075bd8;
-      --blue2:#0b6ef3;
-      --dark:#10223f;
-      --muted:#5f6f86;
-      --bg:#f5f9ff;
-      --line:#dce8f8;
-      --yellow:#ffc928;
-      --green:#12a46a;
-      --white:#fff;
-      --shadow:0 24px 70px rgba(5,38,94,.14);
-      --radius:20px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:"Poppins", Arial, sans-serif;
-      color:var(--dark);
-      background:linear-gradient(180deg,#fff 0%,#f5f9ff 100%);
-    }
-    a{color:inherit;text-decoration:none}
-    button,input{font-family:inherit}
-    .container{width:min(1180px,92%);margin:auto}
-
-    header{
-      background:rgba(255,255,255,.97);
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:30;
-      backdrop-filter:blur(12px);
-    }
-
-    .nav{
-      height:76px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:24px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-size:27px;
-      font-weight:900;
-      white-space:nowrap;
-    }
-
-    .brand img{
-      width:48px;
-      height:48px;
-      border-radius:13px;
-      display:block;
-      object-fit:cover;
-    }
-
-    nav{
-      display:flex;
-      align-items:center;
-      gap:34px;
-      font-weight:800;
-      color:#17365f;
-      height:100%;
-    }
-
-    nav a{
-      height:100%;
-      display:flex;
-      align-items:center;
-      border-bottom:3px solid transparent;
-      padding-top:3px;
-    }
-
-    nav a.active{
-      color:var(--blue);
-      border-bottom-color:var(--blue);
-    }
-
-    .nav-actions{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .btn{
-      min-height:46px;
-      padding:0 22px;
-      border-radius:8px;
-      border:1px solid transparent;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:900;
-      cursor:pointer;
-      transition:.18s ease;
-      white-space:nowrap;
-      font-size:15px;
-    }
-
-    .btn:hover{transform:translateY(-1px)}
-    .btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 26px rgba(7,91,216,.22)}
-    .btn-yellow{background:var(--yellow);color:#13233d}
-    .btn-outline{border-color:var(--blue);color:var(--blue);background:#fff}
-
-    .hero{
-      padding:62px 0 30px;
-      overflow:hidden;
-      background:
-        radial-gradient(circle at 78% 10%,#eaf3ff 0,transparent 42%),
-        linear-gradient(180deg,#fff 0%,#f8fbff 100%);
-    }
-
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1fr 1.02fr;
-      gap:54px;
-      align-items:center;
-    }
-
-    .hero-text{
-      padding-top:12px;
-    }
-
-    .eyebrow{
-      color:var(--blue);
-      font-weight:900;
-      margin-bottom:12px;
-      font-size:18px;
-    }
-
-    h1{
-      font-size:clamp(42px,5.6vw,70px);
-      line-height:1.05;
-      margin:0 0 24px;
-      font-weight:900;
-      letter-spacing:-1px;
-    }
-
-    h1 .blue{color:var(--blue)}
-    h1 .dot{color:var(--yellow)}
-
-    .lead{
-      font-size:22px;
-      line-height:1.7;
-      color:#253c60;
-      max-width:660px;
-      margin:0 0 26px;
-    }
-
-    .checks{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px 28px;
-      margin:22px 0 18px;
-      max-width:650px;
-    }
-
-    .check{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:16px;
-      font-weight:850;
-      color:#152f54;
-    }
-
-    .check:before{
-      content:"✓";
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      display:grid;
-      place-items:center;
-      background:var(--blue);
-      color:#fff;
-      font-weight:900;
-      font-size:15px;
-      flex:0 0 auto;
-    }
-
-    .strip{
-      display:inline-block;
-      background:#eaf3ff;
-      color:#064fbf;
-      border-radius:8px;
-      padding:13px 18px;
-      font-weight:900;
-      margin:8px 0 20px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    .mockups{
-      position:relative;
-      min-height:470px;
-    }
-
-    .laptop{
-      position:absolute;
-      left:0;
-      bottom:30px;
-      width:84%;
-      height:350px;
-      background:#111827;
-      border-radius:22px 22px 8px 8px;
-      padding:18px;
-      box-shadow:var(--shadow);
-      transform:rotate(-3.5deg);
-    }
-
-    .screen{
-      height:100%;
-      background:#f4f8fe;
-      border-radius:13px;
-      padding:22px;
-      overflow:hidden;
-    }
-
-    .screen-title{
-      text-align:center;
-      font-size:19px;
-      font-weight:900;
-      margin-bottom:15px;
-    }
-
-    .app-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:13px;
-    }
-
-    .app-card{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:11px;
-      padding:14px;
-      min-height:58px;
-      display:flex;
-      align-items:center;
-      gap:9px;
-      font-weight:900;
-      box-shadow:0 7px 16px rgba(20,64,128,.06);
-    }
-
-    .phone{
-      position:absolute;
-      right:0;
-      bottom:0;
-      width:185px;
-      height:348px;
-      background:#111827;
-      border-radius:30px;
-      padding:12px;
-      box-shadow:var(--shadow);
-      transform:rotate(-3deg);
-    }
-
-    .phone .screen{
-      border-radius:21px;
-      padding:14px;
-    }
-
-    .phone .screen-title{font-size:15px}
-    .phone .app-grid{grid-template-columns:1fr;gap:9px}
-    .phone .app-card{font-size:13px;min-height:42px;padding:10px}
-
-    .features{
-      background:#fff;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      padding:30px 0;
-    }
-
-    .features-grid{
-      display:grid;
-      grid-template-columns:repeat(6,1fr);
-      text-align:center;
-    }
-
-    .feature{
-      padding:10px 18px;
-      border-left:1px solid var(--line);
-    }
-
-    .feature:last-child{border-left:none}
-
-    .icon{
-      font-size:34px;
-      color:var(--blue);
-      margin-bottom:8px;
-    }
-
-    .feature h3{
-      font-size:18px;
-      margin:0 0 8px;
-      font-weight:900;
-    }
-
-    .feature p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:15px;
-    }
-
-    section.content{
-      padding:56px 0;
-    }
-
-    .split-section{
-      display:grid;
-      grid-template-columns:1fr 1.45fr;
-      gap:34px;
-      align-items:start;
-    }
-
-    .section-title h2{
-      font-size:34px;
-      margin:0 0 10px;
-      font-weight:900;
-    }
-
-    .section-title p{
-      font-size:18px;
-      color:var(--muted);
-      margin:0;
-    }
-
-    .faq-list{
-      display:grid;
-      gap:12px;
-    }
-
-    details{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:10px;
-      box-shadow:0 10px 28px rgba(8,42,99,.06);
-      overflow:hidden;
-    }
-
-    summary{
-      list-style:none;
-      cursor:pointer;
-      padding:18px 22px;
-      font-weight:900;
-      font-size:18px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-    }
-
-    summary::-webkit-details-marker{display:none}
-    summary:after{
-      content:"⌄";
-      color:var(--blue);
-      font-size:22px;
-      line-height:1;
-    }
-
-    details[open] summary:after{content:"⌃"}
-
-    details p{
-      margin:0;
-      padding:0 22px 20px;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:16px;
-    }
-
-    .lead-box{
-      background:#fff;
-      border:2px solid var(--blue);
-      border-radius:18px;
-      padding:28px;
-      box-shadow:0 14px 34px rgba(7,91,216,.08);
-    }
-
-    .lead-box h2{
-      font-size:30px;
-      margin:0 0 8px;
-      font-weight:900;
-    }
-
-    .lead-box p{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-size:17px;
-    }
-
-    .form{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr auto;
-      gap:12px;
-      align-items:start;
-    }
-
-    input{
-      min-height:52px;
-      border:1px solid var(--line);
-      border-radius:8px;
-      padding:0 14px;
-      font-size:16px;
-      background:#fff;
-    }
-
-    .consent{
-      grid-column:1 / -1;
-      display:flex;
-      align-items:flex-start;
-      gap:9px;
-      color:#34445f;
-      font-size:14px;
-      line-height:1.55;
-    }
-
-    .consent input{
-      min-height:auto;
-      margin-top:3px;
-    }
-
-    .consent a{
-      color:var(--blue);
-      font-weight:800;
-      text-decoration:underline;
-      cursor:pointer;
-    }
-
-    .form-status{
-      grid-column:1 / -1;
-      font-weight:800;
-      display:none;
-      margin-top:4px;
-    }
-
-    .form-status.ok{color:var(--green)}
-    .form-status.err{color:#c52b2b}
-
-    footer{
-      background:#061d42;
-      color:#fff;
-      padding:26px 0;
-    }
-
-    .footer-row{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:18px;
-    }
-
-    footer a{
-      color:#fff;
-      opacity:.86;
-      margin-left:18px;
-      cursor:pointer;
-    }
-
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(3,13,32,.64);
-      z-index:100;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    }
-
-    .modal.open{display:flex}
-
-    .modal-box{
-      background:#fff;
-      width:min(760px,96vw);
-      max-height:86vh;
-      overflow:auto;
-      border-radius:18px;
-      box-shadow:0 24px 80px rgba(0,0,0,.28);
-      padding:28px;
-    }
-
-    .modal-top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      margin-bottom:10px;
-    }
-
-    .modal-top h2{
-      margin:0;
-      font-size:28px;
-      font-weight:900;
-    }
-
-    .close{
-      border:0;
-      background:#eef4ff;
-      color:#0b4db1;
-      border-radius:8px;
-      width:38px;
-      height:38px;
-      font-size:24px;
-      cursor:pointer;
-    }
-
-    .legal{
-      color:#273a58;
-      line-height:1.75;
-    }
-
-    .legal h3{
-      margin:22px 0 8px;
-      color:#10223f;
-      font-weight:900;
-    }
-
-    .legal p,.legal li{
-      font-size:15.5px;
-    }
-
-    .legal ul{padding-right:22px}
-
-    @media(max-width:980px){
-      nav{display:none}
-      .hero-grid{
-        grid-template-columns:1fr;
-      }
-      .mockups{
-        order:2;
-        min-height:390px;
-      }
-      .features-grid{
-        grid-template-columns:repeat(2,1fr);
-      }
-      .split-section{
-        grid-template-columns:1fr;
-      }
-      .form{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(max-width:560px){
-      .nav{
-        height:auto;
-        padding:14px 0;
-        flex-wrap:wrap;
-      }
-
-      .brand{font-size:22px}
-      .brand img{width:42px;height:42px}
-
-      .nav-actions{
-        width:100%;
-        display:grid;
-        grid-template-columns:1fr;
-      }
-
-      .checks{
-        grid-template-columns:1fr;
-      }
-
-      .laptop{
-        width:92%;
-        height:280px;
-      }
-
-      .phone{
-        width:140px;
-        height:275px;
-      }
-
-      .features-grid{
-        grid-template-columns:1fr;
-      }
-
-      .feature{
-        border-left:none;
-        border-bottom:1px solid var(--line);
-      }
-
-      .lead-box{
-        padding:22px;
-      }
-
-      .footer-row{
-        flex-direction:column;
-        text-align:center;
-      }
-
-      footer a{
-        margin:0 8px;
-      }
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700;800&display=swap');
+    :root{--blue:#1768e5;--blue2:#0b56c7;--navy:#12233f;--muted:#6b7a90;--bg:#f5f8fd;--soft:#eef5ff;--line:#dce6f4;--green:#10a45f;--yellow:#f5b51b;--white:#fff;--shadow:0 22px 60px rgba(24,65,125,.12);--radius:24px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:"Assistant",Arial,sans-serif;color:var(--navy);background:#fff} a{text-decoration:none;color:inherit} button,input{font:inherit}.container{width:min(1180px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-bottom:1px solid rgba(220,230,244,.9)}
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:10px;font-size:25px;font-weight:800}.brand img{width:46px;height:46px;border-radius:12px}.nav-links{display:flex;gap:28px;font-weight:700}.nav-actions{display:flex;gap:10px}.btn{border:0;border-radius:12px;padding:12px 20px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}.btn:hover{transform:translateY(-1px)}.btn-blue{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;box-shadow:0 10px 24px rgba(23,104,229,.22)}.btn-outline{border:1px solid #cddbef;background:#fff;color:var(--navy)}.btn-light{background:#eef5ff;color:var(--blue)}
+    .hero{padding:78px 0 64px;background:radial-gradient(circle at 15% 20%,#e9f3ff 0,transparent 34%),linear-gradient(180deg,#fff,#f7faff)}.hero-grid{display:grid;grid-template-columns:1fr 1.08fr;align-items:center;gap:56px}.eyebrow{display:inline-flex;padding:8px 13px;border-radius:999px;background:#eaf3ff;color:var(--blue);font-weight:800;margin-bottom:18px}.hero h1{font-size:clamp(46px,5.4vw,76px);line-height:.98;letter-spacing:-1.7px;margin:0 0 22px;font-weight:800}.hero h1 span{color:var(--blue)}.lead{font-size:21px;line-height:1.65;color:#52647d;margin:0 0 24px;max-width:650px}.hero-points{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin:25px 0}.hero-points div{font-weight:700}.hero-points div:before{content:"✓";display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:#e8f8ef;color:var(--green);margin-left:8px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.micro{font-size:14px;color:#7a8799;margin-top:13px}
+    .product-stage{position:relative;min-height:490px;display:grid;place-items:center}.glow{position:absolute;width:440px;height:440px;border-radius:50%;background:#dcecff;filter:blur(4px);opacity:.75}.browser{position:relative;width:100%;background:#fff;border:1px solid #d8e4f3;border-radius:22px;box-shadow:0 32px 80px rgba(27,65,121,.18);overflow:hidden;transform:rotate(-1deg)}.browser-top{height:42px;background:#f4f7fb;border-bottom:1px solid #e2e9f3;display:flex;align-items:center;gap:6px;padding:0 14px}.dot{width:8px;height:8px;border-radius:50%;background:#c8d2df}.app-demo{padding:24px;background:linear-gradient(180deg,#fbfdff,#f3f7fd)}.app-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.app-title{font-size:20px;font-weight:800}.app-logo{width:36px;height:36px;border-radius:10px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:12px}.stat,.demo-card{background:#fff;border:1px solid #dfe8f5;border-radius:14px;padding:13px}.stat small{display:block;color:#8793a5;margin-bottom:5px}.stat strong{font-size:18px}.green{color:var(--green)}.orange{color:#b77908}.demo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.demo-card{min-height:76px;font-weight:800}.demo-card small{display:block;font-weight:500;color:#8995a7;margin-top:5px}.phone{position:absolute;left:-18px;bottom:4px;width:155px;background:#15233b;border-radius:28px;padding:8px;box-shadow:0 24px 45px rgba(20,43,80,.24);transform:rotate(4deg)}.phone-screen{background:#f6f9fd;border-radius:21px;padding:14px 10px;min-height:285px}.phone-logo{width:34px;display:block;margin:0 auto 13px}.phone-card{background:#fff;border:1px solid #dfe8f5;border-radius:11px;padding:9px;margin:7px 0;font-size:12px;font-weight:700}
+    .trust-strip{border-top:1px solid #e8eef7;border-bottom:1px solid #e8eef7;background:#fff}.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}.trust-item{padding:22px 16px;text-align:center;font-weight:700;border-left:1px solid #edf1f7}.trust-item:last-child{border-left:0}.trust-item b{display:block;color:var(--blue);font-size:14px;margin-bottom:3px}
+    section.content{padding:92px 0}.soft{background:var(--bg)}.section-head{text-align:center;max-width:760px;margin:0 auto 44px}.section-head .kicker{color:var(--blue);font-weight:800}.section-head h2{font-size:42px;line-height:1.12;margin:8px 0 13px}.section-head p{font-size:19px;line-height:1.65;color:var(--muted);margin:0}
+    .difference{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}.difference h2{font-size:44px;line-height:1.08;margin:0 0 18px}.difference p{font-size:19px;color:var(--muted);line-height:1.7}.flow{display:grid;gap:12px}.flow-item{display:flex;gap:16px;align-items:flex-start;padding:19px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 28px rgba(23,66,127,.05)}.flow-icon{width:46px;height:46px;flex:0 0 46px;border-radius:13px;background:#eaf3ff;color:var(--blue);display:grid;place-items:center;font-size:20px;font-weight:800}.flow-item h3{margin:0 0 4px;font-size:19px}.flow-item p{margin:0;font-size:15px}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.feature{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px;min-height:175px;transition:.2s}.feature:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(25,68,130,.09)}.feature-icon{width:46px;height:46px;border-radius:13px;background:#eef5ff;color:var(--blue);display:grid;place-items:center;font-weight:800;margin-bottom:18px}.feature h3{margin:0 0 8px;font-size:21px}.feature p{margin:0;color:var(--muted);line-height:1.6}
+    .vat{background:linear-gradient(135deg,#0d5bd1,#1975ee);color:#fff;border-radius:30px;padding:52px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;box-shadow:0 28px 70px rgba(11,86,199,.2)}.vat .kicker{color:#cfe3ff}.vat h2{font-size:43px;line-height:1.08;margin:8px 0 16px}.vat p{font-size:18px;line-height:1.7;color:#eaf3ff}.vat-card{background:#fff;color:var(--navy);border-radius:22px;padding:24px}.vat-row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid #e8eef7}.vat-row:last-child{border:0}.vat-status{margin-top:18px;padding:12px;border-radius:12px;background:#eaf8ef;color:#0c8c50;font-weight:800;text-align:center}
+    .audience{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.audience-card{padding:27px;border:1px solid var(--line);border-radius:20px;background:#fff}.audience-card h3{margin:0 0 8px}.audience-card p{color:var(--muted);line-height:1.6;margin:0}
+    .security{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.security-panel{background:linear-gradient(145deg,#f0f6ff,#fff);border:1px solid #dbe8f8;border-radius:28px;padding:34px}.security-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}.security-pill{background:#fff;border:1px solid #dfe8f5;border-radius:15px;padding:16px;font-weight:700}.security h2{font-size:42px;margin:0 0 15px}.security p{font-size:18px;line-height:1.7;color:var(--muted)}
+    .faq-list{max-width:850px;margin:auto;display:grid;gap:12px}.faq-list details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 21px}.faq-list summary{cursor:pointer;font-size:18px;font-weight:800}.faq-list p{color:var(--muted);line-height:1.65;margin-bottom:0}
+    .cta{background:#10233f;color:#fff;border-radius:30px;padding:50px;text-align:center}.cta h2{font-size:42px;margin:0 0 12px}.cta p{color:#d9e3ef;font-size:18px}.cta .hero-actions{justify-content:center}
+    .lead-box{max-width:900px;margin:auto;background:#fff;border:1px solid var(--line);border-radius:25px;padding:36px;box-shadow:var(--shadow);text-align:center}.lead-box h2{font-size:32px;margin:0 0 8px}.lead-box p{color:var(--muted)}.form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;margin-top:24px}.form input{width:100%;border:1px solid #d6e1ef;border-radius:12px;padding:13px 14px;background:#fbfdff}.consent{grid-column:1/-1;display:flex;gap:8px;justify-content:center;font-size:13px;color:#738198}.consent a{text-decoration:underline;cursor:pointer}.form-status{grid-column:1/-1;display:none;padding:12px;border-radius:10px}.ok{background:#eaf8ef;color:#087844}.err{background:#fff0f0;color:#b42929}
+    footer{border-top:1px solid #e5ecf5;padding:26px 0;color:#748195}.footer-row{display:flex;justify-content:space-between;align-items:center;gap:20px}.footer-row a{margin-right:15px;cursor:pointer}
+    .modal{position:fixed;inset:0;background:rgba(10,25,50,.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:100}.modal.open{display:flex}.modal-box{background:#fff;width:min(820px,96%);max-height:88vh;overflow:auto;border-radius:20px;padding:28px}.modal-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e4eaf2;padding-bottom:12px}.close{border:0;background:#edf2f8;width:36px;height:36px;border-radius:50%;font-size:24px;cursor:pointer}.legal{line-height:1.75;color:#43536a}.legal h3{color:var(--navy);margin-top:24px}
+    @media(max-width:900px){.nav-links{display:none}.nav-actions .btn-outline{display:none}.hero{padding-top:48px}.hero-grid,.difference,.vat,.security{grid-template-columns:1fr}.hero-text{text-align:center}.hero-points{max-width:560px;margin:24px auto;text-align:right}.hero-actions{justify-content:center}.product-stage{min-height:420px}.features-grid,.audience{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:1fr 1fr}.trust-item:nth-child(2){border-left:0}.form{grid-template-columns:1fr 1fr}.form button{grid-column:1/-1}.phone{left:2px}.vat{padding:36px}.section-head h2,.difference h2,.vat h2,.security h2{font-size:36px}}
+    @media(max-width:600px){.container{width:min(94%,1180px)}.nav{height:68px}.brand span{display:none}.brand img{width:42px;height:42px}.nav-actions .btn-blue{font-size:14px;padding:10px 13px}.hero h1{font-size:46px}.lead{font-size:18px}.hero-points{grid-template-columns:1fr}.browser{transform:none}.product-stage{min-height:365px}.phone{width:120px;bottom:-10px}.phone-screen{min-height:220px}.stats{grid-template-columns:1fr 1fr}.demo-grid{grid-template-columns:1fr 1fr}.demo-card:nth-child(3){display:none}.trust-grid,.features-grid,.audience,.security-list{grid-template-columns:1fr}.trust-item{border-left:0;border-bottom:1px solid #edf1f7}.form{grid-template-columns:1fr}.form button{grid-column:auto}.consent{grid-column:auto}.cta,.lead-box{padding:28px 20px}.cta h2{font-size:34px}.section-head h2{font-size:34px}section.content{padding:68px 0}.footer-row{flex-direction:column;text-align:center}}
   </style>
 </head>
-
 <body>
-  <header>
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img src="/assets/azmaiplus-logo.png" alt="עצמאי פלוס">
-        <span>עצמאי פלוס</span>
-      </a>
+<header>
+  <div class="container nav">
+    <a class="brand" href="#"><img src="assets/azmaiplus-logo.png" alt="עצמאי פלוס"><span>עצמאי פלוס</span></a>
+    <nav class="nav-links"><a href="#why">למה עצמאי פלוס</a><a href="#features">יכולות המערכת</a><a href="#vat">מע״מ</a><a href="#faq">שאלות ותשובות</a></nav>
+    <div class="nav-actions"><a class="btn btn-outline" href="https://app.azmaiplus.co.il">התחברות</a><a class="btn btn-blue" href="https://app.azmaiplus.co.il">14 ימי ניסיון חינם</a></div>
+  </div>
+</header>
 
-      <nav>
-        <a class="active" href="#">דף הבית</a>
-        <a href="#faq">שאלות ותשובות</a>
-        <a href="#contact">צור קשר</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-outline" href="https://app.azmaiplus.co.il">התחברות למשתמשים רשומים</a>
-        <a class="btn btn-blue" href="https://app.azmaiplus.co.il">14 ימי ניסיון חינם</a>
-      </div>
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="eyebrow">לעוסק פטור ולעוסק מורשה</div>
+      <h1>לנהל את העסק שלך<br><span>במקום אחד.</span></h1>
+      <p class="lead">עצמאי פלוס מרכזת את ניהול העסק במקום אחד — מסמכים, הכנסות והוצאות, לקוחות, דוחות, מע״מ ועוד. פחות מערכות, פחות התעסקות, יותר שליטה.</p>
+      <div class="hero-points"><div>הפקת מסמכים חשבונאיים</div><div>ניהול הכנסות והוצאות</div><div>דיווח למע״מ מתוך המערכת</div><div>דוחות ותמונת מצב עסקית</div></div>
+      <div class="hero-actions"><a class="btn btn-blue" href="https://app.azmaiplus.co.il">מתחילים 14 יום בחינם</a><a class="btn btn-outline" href="#contact">רוצה לשמוע עוד?</a></div>
+      <div class="micro">ללא התחייבות בתקופת הניסיון</div>
     </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <div class="eyebrow">לעוסק פטור ולעוסק מורשה</div>
-          <h1>כל מה שעצמאי צריך,<br><span class="blue">במקום אחד</span><span class="dot">.</span></h1>
-
-          <p class="lead">אפליקציית ניהול חכמה שמנהלת את העסק שלך מקצה לקצה — בלי מסמכים אבודים, בלי אקסלים ובלי תלות ברואה חשבון.</p>
-
-          <div class="checks">
-            <div class="check">הפקת מסמכים חשבונאיים</div>
-            <div class="check">מעקב הכנסות, הוצאות ורווח</div>
-            <div class="check">דיווח למע״מ בלחיצת כפתור</div>
-            <div class="check">סגירת שנה ודוחות שנתיים</div>
-            <div class="check">ניהול לקוחות וגבייה</div>
-            <div class="check">ייבוא נתונים מתוכנות קודמות</div>
-          </div>
-
-          <div class="strip">חשבוניות, מע״מ, דוח שנתי, רווח והפסד — באפליקציה אחת פשוטה.</div>
-
-          <div class="hero-actions">
-            <a class="btn btn-blue" href="https://app.azmaiplus.co.il">14 ימי ניסיון חינם</a>
-            <a class="btn btn-yellow" href="https://app.azmaiplus.co.il">התחברות למשתמשים רשומים</a>
-          </div>
-        </div>
-
-        <div class="mockups" aria-label="תצוגת האפליקציה">
-          <div class="laptop">
-            <div class="screen">
-              <div class="screen-title">מה עושים היום?</div>
-              <div class="app-grid">
-                <div class="app-card">💰 הכנסות והוצאות</div>
-                <div class="app-card">📊 דוח רווח והפסד</div>
-                <div class="app-card">✈️ דיווח לרשויות</div>
-                <div class="app-card">📄 מסמכים</div>
-                <div class="app-card">👥 לקוחות</div>
-                <div class="app-card">📈 דוחות</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="phone">
-            <div class="screen">
-              <div class="screen-title">מה עושים?</div>
-              <div class="app-grid">
-                <div class="app-card">📄 מסמכים</div>
-                <div class="app-card">👥 לקוחות</div>
-                <div class="app-card">📊 דוחות</div>
-                <div class="app-card">🔄 ייבוא נתונים</div>
-              </div>
-            </div>
-          </div>
+    <div class="product-stage">
+      <div class="glow"></div>
+      <div class="browser">
+        <div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <div class="app-demo">
+          <div class="app-head"><div><div class="app-title">מה עושים היום?</div><small style="color:#8592a5">תצוגת המחשה עם נתוני דמה</small></div><img class="app-logo" src="assets/azmaiplus-logo.png" alt=""></div>
+          <div class="stats"><div class="stat"><small>הכנסות בתקופה</small><strong class="green">₪ 42,680</strong></div><div class="stat"><small>הוצאות בתקופה</small><strong>₪ 8,420</strong></div><div class="stat"><small>מע״מ לתשלום</small><strong class="orange">₪ 5,290</strong></div><div class="stat"><small>רווח משוער</small><strong class="green">₪ 34,260</strong></div></div>
+          <div class="demo-grid"><div class="demo-card">פרופיל עסק<small>פרטי העסק והגדרות</small></div><div class="demo-card">מסמכים<small>חשבוניות, קבלות והצעות</small></div><div class="demo-card">לקוחות<small>ניהול פרטים ומסמכים</small></div><div class="demo-card">הכנסות והוצאות<small>ריכוז התנועות במקום אחד</small></div><div class="demo-card">דיווח מע״מ<small>חישוב, בדיקה ודיווח</small></div><div class="demo-card">דוחות<small>מידע עסקי להחלטות</small></div></div>
         </div>
       </div>
-    </section>
-
-    <section class="features">
-      <div class="container features-grid">
-        <div class="feature"><div class="icon">📄</div><h3>הפקת מסמכים</h3><p>חשבוניות, קבלות, הצעות מחיר ועוד</p></div>
-        <div class="feature"><div class="icon">📊</div><h3>מעקב פיננסי</h3><p>ניהול הכנסות והוצאות בזמן אמת</p></div>
-        <div class="feature"><div class="icon">✈️</div><h3>דיווח למע״מ</h3><p>דיווח קל ופשוט בלחיצה</p></div>
-        <div class="feature"><div class="icon">📈</div><h3>דוחות מתקדמים</h3><p>רווח והפסד, מע״מ וסיכומים שנתיים</p></div>
-        <div class="feature"><div class="icon">👥</div><h3>ניהול לקוחות</h3><p>לקוחות, חיובים ותשלומים</p></div>
-        <div class="feature"><div class="icon">🗓️</div><h3>סגירת שנה</h3><p>הכנה מסודרת לדוחות ולשנת המס</p></div>
-      </div>
-    </section>
-
-    <section id="faq" class="content">
-      <div class="container split-section">
-        <div class="section-title">
-          <h2>שאלות ותשובות</h2>
-          <p>כמה דברים שכדאי לדעת לפני שמתחילים.</p>
-        </div>
-
-        <div class="faq-list">
-          <details>
-            <summary>למי המערכת מתאימה?</summary>
-            <p>לעוסקים פטורים ומורשים שרוצים לנהל הכנסות, הוצאות ומסמכים בצורה עצמאית, ללא תלות ברואה חשבון.</p>
-          </details>
-
-          <details>
-            <summary>צריך ידע בהנהלת חשבונות?</summary>
-            <p>לא. המערכת בנויה בשפה פשוטה ומובילה את המשתמש לפי הפעולות החשובות בעסק: הכנסה, הוצאה, לקוח, מסמך ודוח.</p>
-          </details>
-
-          <details>
-            <summary>אפשר לעבור ממערכת אחרת?</summary>
-            <p>כן. ניתן לייבא נתונים מקובצי CSV או Excel, לבדוק אותם בטבלה לפני האישור ולהמשיך לעבוד בלי להתחיל מאפס.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="content">
-      <div class="container">
-        <div class="lead-box">
-          <h2>רוצים לבדוק אם עצמאי פלוס מתאים לעסק שלכם?</h2>
-          <p>השאירו פרטים ונחזור אליכם עם מידע נוסף.</p>
-
-          <form class="form" id="leadForm">
-            <input name="name" placeholder="שם מלא" required>
-            <input name="email" type="email" placeholder="אימייל" required>
-            <input name="phone" placeholder="טלפון">
-            <button class="btn btn-blue" type="submit">שליחת פרטים</button>
-
-            <label class="consent">
-              <input type="checkbox" name="agree" required>
-              <span>קראתי ואני מסכים/ה ל<a data-modal="terms">תנאי השימוש</a> ול<a data-modal="privacy">מדיניות הפרטיות</a>.</span>
-            </label>
-
-            <div class="form-status ok" id="formOk">הפרטים נשלחו בהצלחה. נחזור אליכם בהקדם.</div>
-            <div class="form-status err" id="formErr">לא הצלחנו לשלוח את הפרטים כרגע. אפשר לפנות אלינו במייל: azmaiplusapp@gmail.com</div>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-row">
-      <div>© עצמאי פלוס. כל הזכויות שמורות.</div>
-      <strong>azmaiplus.co.il</strong>
-      <div>
-        <a data-modal="privacy">מדיניות פרטיות</a>
-        <a data-modal="terms">תנאי שימוש</a>
-      </div>
+      <div class="phone"><div class="phone-screen"><img class="phone-logo" src="assets/azmaiplus-logo.png" alt=""><div class="phone-card">הכנסות והוצאות</div><div class="phone-card">מסמכים</div><div class="phone-card">לקוחות</div><div class="phone-card">דוחות</div><div class="phone-card">דיווח מע״מ</div></div></div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<div class="trust-strip"><div class="container trust-grid"><div class="trust-item"><b>עסק במקום אחד</b>ניהול שוטף מסודר</div><div class="trust-item"><b>לעצמאים בישראל</b>פטור ומורשה</div><div class="trust-item"><b>גישה מכל מכשיר</b>מחשב ונייד</div><div class="trust-item"><b>14 ימי ניסיון</b>להכיר לפני שמחליטים</div></div></div>
+
+<section id="why" class="content soft"><div class="container difference">
+  <div><div class="eyebrow">יותר מהפקת מסמכים</div><h2>לא עוד תוכנה להפקת חשבוניות.<br>מערכת לניהול העסק שלך.</h2><p>עצמאי פלוס נבנתה כדי לאפשר לך לדעת בכל רגע מה קורה עם הכסף שלך, לחבר בין הפעולות השוטפות — מהכנסה והוצאה, דרך לקוחות ומסמכים ועד מע״מ, דוחות וסגירת שנה.</p><a class="btn btn-blue" href="#features">מה אפשר לעשות בעצמאי פלוס?</a></div>
+  <div class="flow"><div class="flow-item"><div class="flow-icon">1</div><div><h3>כל הנתונים במקום אחד</h3><p>הכנסות, הוצאות, לקוחות ומסמכים מתחברים לתמונה אחת ברורה.</p></div></div><div class="flow-item"><div class="flow-icon">2</div><div><h3>יודעים איפה העסק עומד</h3><p>המידע זמין לך לאורך הדרך, בלי לחכות לסוף החודש או סוף השנה.</p></div></div><div class="flow-item"><div class="flow-icon">3</div><div><h3>פחות עבודה כפולה</h3><p>אותם נתונים משמשים לניהול השוטף, לדוחות ולדיווחים.</p></div></div></div>
+</div></section>
+
+<section id="features" class="content"><div class="container">
+  <div class="section-head"><div class="kicker">כל המידע זמין לך כל הזמן</div><h2>מה אפשר לעשות בעצמאי פלוס?</h2><p>הכלים החשובים לניהול העסק, בלי לקפוץ בין מערכות וקבצים.</p></div>
+  <div class="features-grid">
+    <div class="feature"><div class="feature-icon">01</div><h3>הכנסות והוצאות</h3><p>ריכוז התנועות, מעקב לפי תקופות ותמונה ברורה של הפעילות העסקית.</p></div>
+    <div class="feature"><div class="feature-icon">02</div><h3>מסמכים חשבונאיים</h3><p>הפקת חשבוניות, קבלות, הצעות מחיר ומסמכים נוספים מתוך המערכת.</p></div>
+    <div class="feature"><div class="feature-icon">03</div><h3>ניהול לקוחות</h3><p>כרטיסי לקוח, פרטי התקשרות, מסמכים וריכוז מידע במקום אחד.</p></div>
+    <div class="feature"><div class="feature-icon">04</div><h3>דוחות</h3><p>דוחות הכנסות, הוצאות, תנועות, רווח והפסד, לקוחות ומידע עסקי נוסף.</p></div>
+    <div class="feature"><div class="feature-icon">05</div><h3>פחת וסגירת שנה</h3><p>ניהול פחת, ריכוז נתונים והכנה מסודרת לקראת סוף שנת המס.</p></div>
+    <div class="feature"><div class="feature-icon">06</div><h3>ייבוא נתונים</h3><p>מעבר קל יותר ממערכות קודמות באמצעות קליטת נתונים קיימים.</p></div>
+  </div>
+</div></section>
+
+<section id="vat" class="content"><div class="container"><div class="vat">
+  <div><div class="kicker">לעוסק מורשה</div><h2>תשלום מע״מ ישירות מתוך המערכת.</h2><p>עצמאי פלוס מרכזת את נתוני העסק, מסייעת בחישוב ובבדיקה ומאפשרת לבצע את תהליך הדיווח מתוך המערכת — כחלק טבעי מניהול העסק.</p><a class="btn" style="background:#fff;color:#0d5bd1" href="https://app.azmaiplus.co.il">לנסות את עצמאי פלוס</a></div>
+  <div class="vat-card"><div style="font-size:21px;font-weight:800;margin-bottom:8px">דיווח מע״מ</div><div class="vat-row"><span>עסקאות לפני מע״מ</span><strong>₪ 38,500</strong></div><div class="vat-row"><span>הוצאות לפני מע״מ</span><strong>₪ 7,900</strong></div><div class="vat-row"><span>תקופת דיווח</span><strong>יולי–אוגוסט</strong></div><div class="vat-row"><span>מע״מ עסקאות (18%)</span><strong>₪ 6,930</strong></div><div class="vat-row"><span>מע״מ תשומות (18%)</span><strong>₪ 1,422</strong></div><div class="vat-row"><span>מע״מ לתשלום</span><strong>₪ 5,508</strong></div><div class="vat-status">מוכן לבדיקה ולדיווח</div><small style="display:block;color:#8a96a8;text-align:center;margin-top:10px">נתוני דמה להמחשה בלבד</small></div>
+</div></div></section>
+
+<section class="content soft"><div class="container">
+  <div class="section-head"><div class="kicker">נבנתה על ידי עצמאים עבור עצמאים</div><h2>פשוט לנהל. קל להבין.</h2></div>
+  <div class="audience"><div class="audience-card"><h3>עוסק פטור</h3></div><div class="audience-card"><h3>עוסק מורשה</h3></div><div class="audience-card"><h3>עסק קטן שרוצה שליטה</h3></div></div>
+</div></section>
+
+<section class="content"><div class="container security">
+  <div><div class="eyebrow">הפרטיות שלך חשובה לנו</div><h2>המידע העסקי שלך נשאר שלך.</h2><p>עצמאי פלוס נבנתה סביב מידע עסקי וחשבונאי, ולכן אבטחה, פרטיות ושמירת נתונים הן חלק מהמערכת — לא תוספת שיווקית.</p><p style="font-size:14px">המערכת היא כלי לניהול העסק ואינה תחליף לייעוץ חשבונאי, ייעוץ מס או ייעוץ משפטי כאשר נדרש ייעוץ מקצועי.</p></div>
+  <div class="security-panel"><div class="security-list"><div class="security-pill">🔒 גישה מאובטחת</div><div class="security-pill">☁️ שמירת נתונים בענן</div><div class="security-pill">🧾 חיבור לשירותי רשות המסים</div><div class="security-pill">🛡️ פרטיות המידע העסקי</div></div></div>
+</div></section>
+
+<section id="faq" class="content soft"><div class="container">
+  <div class="section-head"><div class="kicker">לפני שמתחילים</div><h2>שאלות ותשובות</h2></div>
+  <div class="faq-list">
+    <details><summary>למי המערכת מתאימה?</summary><p>לעוסקים פטורים, עוסקים מורשים ובעלי עסקים קטנים שרוצים לרכז ולנהל את הפעילות העסקית במקום אחד.</p></details>
+    <details><summary>צריך ידע בהנהלת חשבונות?</summary><p>המערכת נבנתה בשפה פשוטה כדי לאפשר לעצמאים לנהל את הפעולות השוטפות בצורה ברורה. במקרים שבהם נדרש ייעוץ מקצועי, מומלץ כמובן להיעזר באיש מקצוע מתאים.</p></details>
+    <details><summary>אפשר לעבור ממערכת אחרת?</summary><p>כן. עצמאי פלוס כוללת אפשרויות ייבוא שנועדו להקל על מעבר עם נתונים קיימים, במקום להתחיל הכול מחדש.</p></details>
+    <details><summary>המערכת מתאימה גם לעוסק מורשה?</summary><p>כן. לצד ניהול הכנסות, הוצאות, לקוחות ומסמכים, קיימים גם כלים המיועדים לעבודה עם מע״מ ודוחות.</p></details>
+    <details><summary>אפשר לעבוד גם מהטלפון?</summary><p>כן. המערכת מותאמת לעבודה מהמחשב ומהנייד, כך שאפשר לגשת לעסק גם כשלא יושבים מול המחשב.</p></details>
+  </div>
+</div></section>
+
+<section class="content"><div class="container"><div class="cta"><h2>פחות התעסקות. יותר שליטה בעסק.</h2><p>הכירו את עצמאי פלוס במשך 14 ימים ובדקו איך מרגיש לנהל את העסק במקום אחד.</p><div class="hero-actions"><a class="btn btn-blue" href="https://app.azmaiplus.co.il">מתחילים 14 יום בחינם</a><a class="btn btn-light" href="#contact">יש לי שאלה</a></div></div></div></section>
+
+<section id="contact" class="content soft"><div class="container"><div class="lead-box">
+  <h2>רוצים לשמוע עוד על עצמאי פלוס?</h2><p>השאירו פרטים ונחזור אליכם.</p>
+  <form class="form" id="leadForm">
+    <input name="name" placeholder="שם מלא" required><input name="email" type="email" placeholder="אימייל" required><input name="phone" placeholder="טלפון"><button class="btn btn-blue" type="submit">שליחת פרטים</button>
+    <label class="consent"><input type="checkbox" name="agree" required><span>קראתי ואני מסכים/ה ל<a data-modal="terms">תנאי השימוש</a> ול<a data-modal="privacy">מדיניות הפרטיות</a>.</span></label>
+    <div class="form-status ok" id="formOk">הפרטים נשלחו בהצלחה. נחזור אליכם בהקדם.</div><div class="form-status err" id="formErr">לא הצלחנו לשלוח את הפרטים כרגע. אפשר לפנות אלינו במייל: azmaiplusapp@gmail.com</div>
+  </form>
+</div></div></section>
+</main>
+
+<footer><div class="container footer-row"><div>© עצמאי פלוס. כל הזכויות שמורות.</div><strong>azmaiplus.co.il</strong><div><a data-modal="privacy">מדיניות פרטיות</a><a data-modal="terms">תנאי שימוש</a></div></div></footer>
 
   <div class="modal" id="privacyModal" aria-hidden="true">
     <div class="modal-box">
