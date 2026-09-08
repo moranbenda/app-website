@@ -15,9 +15,9 @@
 </head>
 <body class="join-page">
 <header class="join-header"><a class="brand" href="/fit-coach/"><img class="brand-logo" src="/fit-coach/assets/fit-coach-logo.png" alt=""><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a><a href="/fit-coach/">חזרה לאתר</a></header>
-<main class="join-main">
+<main class="join-main" id="main-content" tabindex="-1">
   <section class="wizard" data-wizard>
-    <div class="wizard-head"><div><small data-step-label>שלב 1 מתוך 9</small><h1 data-step-heading>בואי נכיר</h1></div><span data-save>הטיוטה נשמרת במכשיר</span></div>
+    <div class="wizard-head"><div><small data-step-label>שלב 1 מתוך 9</small><h1 data-step-heading>בואי נכיר</h1></div><span data-save role="status" aria-live="polite">הטיוטה נשמרת במכשיר</span></div>
     <div class="progress"><i data-progress></i></div>
     <form id="join-form" novalidate>
       <section class="form-step active" data-step="1" data-title="בואי נכיר">
@@ -37,7 +37,7 @@
           <label><input type="radio" name="experience" value="returning"><i>↻</i><span><b>התאמנתי בעבר ואני רוצה לחזור</b><small>אני מכירה חלק מהדברים, אבל צריכה מסגרת.</small></span></label>
           <label><input type="radio" name="experience" value="advanced"><i>↗</i><span><b>אני כבר מתאמנת ורוצה להתקדם</b><small>אני מחפשת תוכנית מקצועית, מעקב וליווי.</small></span></label>
           <label><input type="radio" name="experience" value="unsure"><i>?</i><span><b>אני לא בטוחה מה מתאים לי</b><small>זה בסדר — נעשה את ההתאמה יחד.</small></span></label>
-        </div><p class="group-error" data-error="experience">בחרי אפשרות אחת.</p>
+        </div><p class="group-error" role="alert" data-error="experience">בחרי אפשרות אחת.</p>
       </section>
 
       <section class="form-step" data-step="3" data-title="המטרות שלך">
@@ -51,7 +51,7 @@
           <label><input type="checkbox" name="goals" value="health"><i>✓</i><span><b>בריאות והרגשה טובה</b></span></label>
         </div>
         <label class="field full extra"><b>מטרה נוספת או משהו שחשוב לך במיוחד</b><textarea name="goalNotes" rows="3" placeholder="אפשר לכתוב כאן במילים שלך..."></textarea></label>
-        <p class="group-error" data-error="goals">בחרי לפחות מטרה אחת או כתבי במילים שלך.</p>
+        <p class="group-error" role="alert" data-error="goals">בחרי לפחות מטרה אחת או כתבי במילים שלך.</p>
       </section>
 
       <section class="form-step" data-step="4" data-title="מקום האימון">
@@ -61,7 +61,7 @@
           <label><input type="checkbox" name="locations" value="gym"><i>▣</i><span><b>בחדר כושר</b></span></label>
           <label><input type="checkbox" name="locations" value="park"><i>♧</i><span><b>בפארק</b></span></label>
           <label><input type="checkbox" name="locations" value="unsure"><i>?</i><span><b>עדיין לא החלטתי</b></span></label>
-        </div><p class="group-error" data-error="locations">בחרי לפחות אפשרות אחת.</p>
+        </div><p class="group-error" role="alert" data-error="locations">בחרי לפחות אפשרות אחת.</p>
         <div class="conditional" data-condition="home"><h3>איזה ציוד יש לך בבית?</h3><div class="chips"><label><input type="checkbox" name="homeEquipment" value="none"><span>אין ציוד</span></label><label><input type="checkbox" name="homeEquipment" value="bands"><span>גומיות</span></label><label><input type="checkbox" name="homeEquipment" value="dumbbells"><span>משקולות</span></label><label><input type="checkbox" name="homeEquipment" value="kettlebell"><span>קטלבל</span></label><label><input type="checkbox" name="homeEquipment" value="bench"><span>ספסל / מדרגה</span></label><label><input type="checkbox" name="homeEquipment" value="trx"><span>TRX</span></label><label><input type="checkbox" name="homeEquipment" value="cardio"><span>מכשיר אירובי</span></label></div></div>
         <div class="conditional" data-condition="gym"><h3>האם יש לך גישה לחדר כושר מאובזר?</h3><div class="inline"><label><input type="radio" name="gymAccess" value="yes"><span>כן</span></label><label><input type="radio" name="gymAccess" value="partial"><span>חלקית</span></label><label><input type="radio" name="gymAccess" value="unknown"><span>לא יודעת</span></label></div></div>
         <div class="conditional" data-condition="park"><h3>האם יש בפארק מתקני מתח ומקבילים?</h3><div class="inline"><label><input type="radio" name="parkEquipment" value="yes"><span>כן</span></label><label><input type="radio" name="parkEquipment" value="no"><span>לא</span></label><label><input type="radio" name="parkEquipment" value="unknown"><span>לא יודעת</span></label></div></div>
@@ -69,14 +69,14 @@
 
       <section class="form-step" data-step="5" data-title="מסגרת האימונים">
         <div class="step-title"><span>עדיף יעד שאפשר לקיים</span><h2>כמה פעמים בשבוע תרצי להתאמן?</h2><p>בין אימון אחד לארבעה אימונים בשבוע.</p></div>
-        <div class="numbers"><label><input type="radio" name="daysPerWeek" value="1"><span><b>1</b><small>פעם בשבוע</small></span></label><label><input type="radio" name="daysPerWeek" value="2"><span><b>2</b><small>פעמיים בשבוע</small></span></label><label><input type="radio" name="daysPerWeek" value="3"><span><b>3</b><small>שלוש פעמים</small></span></label><label><input type="radio" name="daysPerWeek" value="4"><span><b>4</b><small>ארבע פעמים</small></span></label></div><p class="group-error" data-error="daysPerWeek">בחרי מספר אימונים.</p>
-        <hr><h3>כמה זמן ריאלי עבורך להקדיש לאימון?</h3><div class="inline duration"><label><input type="radio" name="duration" value="20"><span>20 דקות</span></label><label><input type="radio" name="duration" value="30"><span>30 דקות</span></label><label><input type="radio" name="duration" value="45"><span>45 דקות</span></label><label><input type="radio" name="duration" value="60"><span>60 דקות</span></label></div><p class="group-error" data-error="duration">בחרי משך אימון.</p>
+        <div class="numbers"><label><input type="radio" name="daysPerWeek" value="1"><span><b>1</b><small>פעם בשבוע</small></span></label><label><input type="radio" name="daysPerWeek" value="2"><span><b>2</b><small>פעמיים בשבוע</small></span></label><label><input type="radio" name="daysPerWeek" value="3"><span><b>3</b><small>שלוש פעמים</small></span></label><label><input type="radio" name="daysPerWeek" value="4"><span><b>4</b><small>ארבע פעמים</small></span></label></div><p class="group-error" role="alert" data-error="daysPerWeek">בחרי מספר אימונים.</p>
+        <hr><h3>כמה זמן ריאלי עבורך להקדיש לאימון?</h3><div class="inline duration"><label><input type="radio" name="duration" value="20"><span>20 דקות</span></label><label><input type="radio" name="duration" value="30"><span>30 דקות</span></label><label><input type="radio" name="duration" value="45"><span>45 דקות</span></label><label><input type="radio" name="duration" value="60"><span>60 דקות</span></label></div><p class="group-error" role="alert" data-error="duration">בחרי משך אימון.</p>
       </section>
 
       <section class="form-step" data-step="6" data-title="התמדה">
         <div class="step-title"><span>השאלה הזו חשובה יותר ממה שנדמה</span><h2>מה בדרך כלל גורם לך להפסיק להתאמן?</h2><p>אפשר לבחור יותר מתשובה אחת.</p></div>
         <div class="choices compact"><label><input type="checkbox" name="barriers" value="time"><i>◷</i><span><b>אין לי זמן</b></span></label><label><input type="checkbox" name="barriers" value="motivation"><i>⌁</i><span><b>אני מאבדת מוטיבציה</b></span></label><label><input type="checkbox" name="barriers" value="knowledge"><i>?</i><span><b>אני לא יודעת מה לעשות</b></span></label><label><input type="checkbox" name="barriers" value="boredom"><i>≈</i><span><b>אני משתעממת</b></span></label><label><input type="checkbox" name="barriers" value="fear"><i>!</i><span><b>אני חוששת להיפצע</b></span></label><label><input type="checkbox" name="barriers" value="alone"><i>○</i><span><b>קשה לי להתמיד לבד</b></span></label></div>
-        <label class="field full extra"><b>משהו נוסף שמקשה עלייך?</b><textarea name="barrierNotes" rows="3"></textarea></label><p class="group-error" data-error="barriers">בחרי לפחות אפשרות אחת או כתבי במילים שלך.</p>
+        <label class="field full extra"><b>משהו נוסף שמקשה עלייך?</b><textarea name="barrierNotes" rows="3"></textarea></label><p class="group-error" role="alert" data-error="barriers">בחרי לפחות אפשרות אחת או כתבי במילים שלך.</p>
       </section>
 
       <section class="form-step" data-step="7" data-title="שאלון בריאות">
@@ -98,13 +98,13 @@
           <label><input type="radio" name="package" value="month"><span><small>חודש ניסיון</small><b>300 ₪</b><em>תשלום אחד</em></span></label>
           <label class="recommended"><input type="radio" name="package" value="quarter"><i>המשתלם להתחלה</i><span><small>3 חודשים</small><b>750 ₪</b><em>או 3 תשלומים של 250 ₪</em></span></label>
           <label><input type="radio" name="package" value="half-year"><span><small>חצי שנה</small><b>1,320 ₪</b><em>או 6 תשלומים של 220 ₪</em></span></label>
-        </div><p class="group-error" data-error="package">בחרי חבילה.</p>
+        </div><p class="group-error" role="alert" data-error="package">בחרי חבילה.</p>
       </section>
 
       <section class="form-step" data-step="9" data-title="סיכום">
         <div class="step-title"><span>כמעט סיימנו</span><h2>זה מה שסיפרת לי</h2><p>אפשר לחזור אחורה ולשנות כל תשובה.</p></div>
         <div class="summary" data-summary></div>
-        <label class="consent"><input type="checkbox" name="consent"><span>אני מאשרת שהפרטים שמסרתי נכונים, ומבינה שההצטרפות תושלם לאחר אישור התשלום.</span></label><p class="group-error" data-error="consent">יש לאשר את ההצהרה.</p>
+        <label class="consent"><input type="checkbox" name="consent"><span>אני מאשרת שהפרטים שמסרתי נכונים, ומבינה שההצטרפות תושלם לאחר אישור התשלום.</span></label><p class="group-error" role="alert" data-error="consent">יש לאשר את ההצהרה.</p>
         <div class="notice"><b>כמעט סיימנו:</b> בלחיצה על שליחת השאלון הפרטים יועברו אליי לצורך בדיקה והתאמת הליווי. לאחר מכן אחזור אלייך להמשך התהליך.</div>
       </section>
 
@@ -116,5 +116,15 @@
 
   <aside class="join-aside"><span>התאמה אישית</span><h2>אז ספרי לי קצת עלייך.<br>השיבי על השאלון ונבנה יחד את התוכנית שמתאימה לך.</h2><p>בסיום השאלון יהיו לי כל הפרטים הדרושים כדי לבנות עבורך תוכנית אימונים שמתאימה למטרות שלך, לזמן שיש לך ולציוד שעומד לרשותך.</p><ul><li>✓ נקודת הפתיחה שלך</li><li>✓ מטרות והעדפות</li><li>✓ מקום וציוד</li><li>✓ זמן ומסגרת</li><li>✓ מידע בריאותי חשוב</li></ul><div><b>הפרטיות שלך חשובה</b><p>המידע נשמר בצורה מאובטחת וישמש אך ורק לצורך התאמת תוכנית הליווי.</p></div></aside>
 </main>
+
+<button class="a11y-toggle" type="button" data-a11y-toggle aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות">♿</button>
+<div class="a11y-panel" id="a11y-panel" data-a11y-panel hidden role="region" aria-label="אפשרויות נגישות">
+  <strong>אפשרויות נגישות</strong>
+  <button type="button" data-a11y="text">הגדלת טקסט</button>
+  <button type="button" data-a11y="contrast">ניגודיות גבוהה</button>
+  <button type="button" data-a11y="links">הדגשת קישורים</button>
+  <button type="button" data-a11y="reset">איפוס התאמות</button>
+  <a href="/fit-coach/accessibility/">הצהרת נגישות</a>
+</div>
 </body>
 </html>

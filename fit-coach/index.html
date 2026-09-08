@@ -14,17 +14,18 @@
   <script src="/fit-coach/script.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">דילוג לתוכן הראשי</a>
 <header class="site-header" data-header>
   <div class="container nav-wrap">
     <a class="brand" href="/fit-coach/"><img class="brand-logo" src="/fit-coach/assets/fit-coach-logo.png" alt=""><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a>
-    <nav class="desktop-nav"><a href="#who">למי זה מתאים</a><a href="#how">איך זה עובד</a><a href="#benefits">מה מקבלים</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a></nav>
+    <nav class="desktop-nav" aria-label="ניווט ראשי"><a href="#who">למי זה מתאים</a><a href="#how">איך זה עובד</a><a href="#benefits">מה מקבלים</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a><a href="/fit-coach/accessibility/">הצהרת נגישות</a></nav>
     <a class="btn btn-primary nav-cta" href="/fit-coach/join/">מתחילות כאן</a>
-    <button class="menu-btn" data-menu-button aria-label="פתיחת תפריט" aria-expanded="false"><i></i><i></i><i></i></button>
+    <button class="menu-btn" data-menu-button aria-label="פתיחת תפריט" aria-expanded="false" aria-controls="mobile-navigation"><i></i><i></i><i></i></button>
   </div>
-  <nav class="mobile-nav" data-mobile-nav><a href="#who">למי זה מתאים</a><a href="#how">איך זה עובד</a><a href="#benefits">מה מקבלים</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a><a class="btn btn-primary" href="/fit-coach/join/">מתחילות כאן</a></nav>
+  <nav class="mobile-nav" data-mobile-nav id="mobile-navigation" aria-label="ניווט בנייד"><a href="#who">למי זה מתאים</a><a href="#how">איך זה עובד</a><a href="#benefits">מה מקבלים</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a><a class="btn btn-primary" href="/fit-coach/join/">מתחילות כאן</a></nav>
 </header>
 
-<main>
+<main id="main-content" tabindex="-1">
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy reveal">
@@ -34,7 +35,7 @@
         <div class="hero-actions"><a class="btn btn-primary btn-large" href="/fit-coach/join/">אני רוצה להתחיל ←</a><a class="btn btn-light btn-large" href="#how">איך זה עובד?</a></div>
         <div class="ticks"><span>✓ תוכנית אישית</span><span>✓ אפליקציה נוחה</span><span>✓ ליווי אמיתי</span></div>
       </div>
-      <div class="hero-phone reveal delay">
+      <div class="hero-phone reveal delay" aria-hidden="true">
         <div class="phone">
           <div class="phone-top">9:41 <span>● ● ●</span></div>
           <div class="screen">
@@ -122,6 +123,16 @@
   <section class="final-cta"><div class="container"><div><span>הצעד הראשון קטן</span><h2>בואי נבנה דרך שתוכלי באמת להתמיד בה.</h2><p>כמה שאלות קצרות, ואני כבר אדע הרבה יותר על מה שמתאים לך.</p></div><a class="btn btn-white btn-large" href="/fit-coach/join/">מתחילות עכשיו ←</a></div></section>
 </main>
 
-<footer><div class="container footer-grid"><a class="brand" href="/fit-coach/"><img class="brand-logo" src="/fit-coach/assets/fit-coach-logo.png" alt=""><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a><p>תוכנית אימונים אישית, ליווי מקצועי ואפליקציה שמלווה אותך לאורך הדרך.</p><nav><a href="/fit-coach/join/">הצטרפות</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a><a href="/">עצמאי פלוס</a></nav><small>© <span data-year></span> מורן בן דוד. כל הזכויות שמורות.</small></div></footer>
+<footer><div class="container footer-grid"><a class="brand" href="/fit-coach/"><img class="brand-logo" src="/fit-coach/assets/fit-coach-logo.png" alt=""><span><b>FIT COACH</b><small>עם מורן בן דוד</small></span></a><p>תוכנית אימונים אישית, ליווי מקצועי ואפליקציה שמלווה אותך לאורך הדרך.</p><nav><a href="/fit-coach/join/">הצטרפות</a><a href="/fit-coach/about/">מי אני</a><a href="#faq">שאלות נפוצות</a><a href="/">עצמאי פלוס</a><a href="/fit-coach/accessibility/">הצהרת נגישות</a></nav><small>© <span data-year></span> מורן בן דוד. כל הזכויות שמורות.</small></div></footer>
+
+<button class="a11y-toggle" type="button" data-a11y-toggle aria-expanded="false" aria-controls="a11y-panel" aria-label="פתיחת תפריט נגישות">♿</button>
+<div class="a11y-panel" id="a11y-panel" data-a11y-panel hidden role="region" aria-label="אפשרויות נגישות">
+  <strong>אפשרויות נגישות</strong>
+  <button type="button" data-a11y="text">הגדלת טקסט</button>
+  <button type="button" data-a11y="contrast">ניגודיות גבוהה</button>
+  <button type="button" data-a11y="links">הדגשת קישורים</button>
+  <button type="button" data-a11y="reset">איפוס התאמות</button>
+  <a href="/fit-coach/accessibility/">הצהרת נגישות</a>
+</div>
 </body>
 </html>
